@@ -1,10 +1,11 @@
 import { Component } from "react"
 
-class CreateContent extends Component {
+class UpdateContent extends Component {
     render() {
+      console.log(this.props)
       return (
         <article>
-          <h2>Create</h2>
+          <h2>Update</h2>
             <form action="/create_process" method="post" onSubmit={function(e) {
               e.preventDefault()
               this.props.getSubmitData(
@@ -14,7 +15,7 @@ class CreateContent extends Component {
               alert("Submit!!!")
             }.bind(this)}>
               <p>
-                <input type="text" name="title" placeholder="title"></input>
+                <input type="text" name="title" placeholder="title" value={this.props.data.title}></input>
               </p>
               <p>
                 <textarea name="desc" placeholder="description"></textarea>
@@ -28,4 +29,4 @@ class CreateContent extends Component {
     }
 }
 
-export default CreateContent
+export default UpdateContent
